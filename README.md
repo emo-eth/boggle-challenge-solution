@@ -29,5 +29,5 @@ vastly reducing the number of character combinations which need to be checked.
 
 Of course, building the trie can itself be time expensive, so instead of
 rebuilding the trie from scratch every time, the trie is pickled upon
-construction. On subsequent runs, the program will rebuild the trie from
-its pickled state.
+construction. On subsequent runs, the trie will be rebuilt from its pickled 
+state.
