@@ -1,12 +1,12 @@
-class TrieNode():
+class TrieNode:
     
-    def __init__(self, chars=None, prefix=''):
+    def __init__(self, chars=None):
         self.children = [None] * 26
         self.word = False
         if chars is not None:
-            self.insert(chars, prefix)
+            self.insert(chars)
 
-    def insert(self, chars, prefix=''):
+    def insert(self, chars):
         if len(chars) > 0:
             # This messiness is necessary to handle non-alpha characters
             index = None
@@ -15,9 +15,9 @@ class TrieNode():
                 i += 1
                 index = self.convert_char_to_index(chars[i])
             if self.children[index] is None:
-                self.children[index] = TrieNode(chars[1:], prefix + chars[i])
+                self.children[index] = TrieNode(chars[1:])
             else:
-                self.children[index].insert(chars[1:], prefix + chars[i])
+                self.children[index].insert(chars[1:])
         else:
             self.word = True
 
